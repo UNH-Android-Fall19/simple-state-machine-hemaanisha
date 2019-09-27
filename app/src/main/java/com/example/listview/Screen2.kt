@@ -32,4 +32,5 @@ class Screen2 : AppCompatActivity() {
             startActivity(intent)
         })
     }
+
 }

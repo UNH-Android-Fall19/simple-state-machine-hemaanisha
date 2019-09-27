@@ -10,14 +10,6 @@ import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
-    var data: MutableList<MainModel> = mutableListOf()
-
-    init {
-        //Adding dummy data to data list
-        data.add(MainModel("1","Name 1","Price 1"))
-        data.add(MainModel("2","Name 2","Price 2"))
-        data.add(MainModel("3","Name 3","Price 3"))
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +24,9 @@ class MainActivity : AppCompatActivity() {
             Log.d("Data", data.toString())
             data.add(MainModel(ETId, ETName, ETPrice))
         } else {
+            data.add(MainModel("1","Name 1","Price 1"))
+            data.add(MainModel("2","Name 2","Price 2"))
+            data.add(MainModel("3","Name 3","Price 3"))
             Log.d("Error", "Error")
         }
 
@@ -39,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this@MainActivity, Screen2::class.java)
 
-            startActivity(intent)
+            startActivityForResult(intent,0)
         })
 
         recycler_view.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
